@@ -1,25 +1,54 @@
-import java.util.Scanner;
-
 public class Main {
 
     public static void main(String[] args) {
-        // 조건문 quiz-1 : 입력받은 점수가 무슨 등급인지 출력
-        // 100~91점: A등급
-        // 90~81점: B등급
-        // 80~71점: C등급
-        // 그 외: F등급
-
-        Scanner sc = new Scanner(System.in);
-        int score = sc.nextInt();
-
-        if (score <= 100 && score > 90) {
-            System.out.println("A등급");
-        } else if (score <= 90 && score > 80) {
-            System.out.println("B등급");
-        } else if (score <= 80 && score > 70) {
-            System.out.println("C등급");
-        } else {
-            System.out.println("F등급");
+        // 반복문
+        // for문
+        int sum = 0;
+        for (int i = 0; i < 10; i++) {
+            sum += (i + 1);
         }
+        System.out.println(sum);
+
+        //  for-each문
+        String[] days = {"월", "화", "수", "목", "금", "토", "일"};
+        for (String day : days) {
+            System.out.println(day);
+        }
+
+        // while문
+        int i = 0;
+        int newSum = 0;
+        while (i < 10) {
+            newSum += i + 1;
+            i++;
+        }
+        System.out.println(newSum);
+
+        // while문 + break
+        i = 0;
+        while (i < 10) {
+            if (i == 5) {
+                break;
+            }
+            i++;
+        }
+        System.out.println(i);
+
+        // for + continue
+        for (int j = 0; j < 10; j++) {
+            if ( j == 5 ) {
+                continue;
+            }
+            System.out.println(j);
+        }
+
+        // do-while 문
+        int k = 1;
+        int result = 0;
+        do {
+            result += k;
+            k += 1;
+        } while ( k < 2); // 조건문 타기 전에 앞의 코드를 먼저 한 번 실행하고 비교함
+        System.out.println(result);
     }
 }
