@@ -11,5 +11,10 @@ public class Main {
 
         string = "Goodbye World!"; // 이미 선언된 변수에 다른 값을 할당
         System.out.println(string);
+
+        final int num2 = 10; // 상수형 변수 선언하기
+        System.out.println(num2);
+        // num2 = 50; // error: cannot assign a value to final variable num2. 상수이기 때문!
+
     }
 }
