@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
 //        int num = 5; // 정수형 변수 선언
@@ -59,12 +61,43 @@ public class Main {
         // char type은 default 값이 없음
 
         // 논리 기본 자료형
-        boolean fact = true; // 논리형 변수는 true, false의 값을 가진다.
-        System.out.println(fact);
+//        boolean fact = true; // 논리형 변수는 true, false의 값을 가진다.
+//        System.out.println(fact);
         // boolean type은 default 값이 없음
 
         // 바이트 기본 자료형
-        byte data = 'd';
-        System.out.println(data); // 알파벳 d는 ASCII code에서 십진법으로 100이기 때문에 100이라는 글자가 출력됨
+//        byte data = 'd';
+//        System.out.println(data); // 알파벳 d는 ASCII code에서 십진법으로 100이기 때문에 100이라는 글자가 출력됨
+
+        // 참조 자료형 : 자바에서는 기본 자료형이 아닌 모든 것을 참조 자료형이라고 함. 자바의 인스턴스를 가리킬 수 있는 자료형임
+
+//        String newString = "Noooo!!";
+//        System.out.println(newString);
+//
+//        int[] intArray = new int[] {1,2,3,4,5}; // int 배열을 선언과 동시에 초기화
+//        System.out.println(Arrays.toString(intArray));
+
+        // 배열 : 동일한 자료형의 데이터를 연속된 공간에 저장하기 위한 자료구조
+//        int[] intEmptyArray = new int[5]; // int의 5자리 배열 선언
+//        System.out.println(Arrays.toString(intEmptyArray)); // int의 default 값 0으로 채워짐
+
+        int[] intArray = new int[] {1,2,3,4,5}; // int 배열을 선언과 동시에 초기화
+        System.out.println(Arrays.toString(intArray));
+
+//        String[] stringEmptyArray = new String[5]; // 참조자료형 String의 5자리 배열 선언
+//        System.out.println(Arrays.toString(stringEmptyArray)); // 참조자료형은 값이 없을 경우 null로 표현
+
+//        String[] months = {"1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"};
+//        System.out.println(Arrays.toString(months));
+
+        int[] scores = new int[4];
+        scores[0] = 5; // 인덱스를 통해 배열에 값 입력
+        scores[1] = 10;
+        System.out.println(scores[0]); // 인덱스를 통해 배열의 특정 값 출력
+
+        String[] months = {"1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"};
+        System.out.println(months[7]); // 인덱스를 통해 배열의 특정 값 출력
+
+//        int[][] arr = new int[4][3]; // 배열을 활용하여 2차원의 배열도 만들 수 있음
     }
 }
