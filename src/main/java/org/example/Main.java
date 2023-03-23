@@ -54,8 +54,17 @@ public class Main {
 //        System.out.println(Double.MIN_VALUE);
 
         // 문자 기본 자료형 알아보기
-        char alphabet = 'A'; // 문자형 변수 선언
-        System.out.println(alphabet);
+//        char alphabet = 'A'; // 문자형 변수 선언
+//        System.out.println(alphabet);
         // char type은 default 값이 없음
+
+        // 논리 기본 자료형
+        boolean fact = true; // 논리형 변수는 true, false의 값을 가진다.
+        System.out.println(fact);
+        // boolean type은 default 값이 없음
+
+        // 바이트 기본 자료형
+        byte data = 'd';
+        System.out.println(data); // 알파벳 d는 ASCII code에서 십진법으로 100이기 때문에 100이라는 글자가 출력됨
     }
 }
