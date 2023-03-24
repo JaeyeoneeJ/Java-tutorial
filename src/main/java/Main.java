@@ -1,34 +1,50 @@
-import pkg.ModifierTest;
+// 추상 메소드: 설계만 되어 있으며 수행되는 코드에 대해서는 작성이 안 된 메소드
+// 상속받는 클래스마다 반드시 동작이 달라지는 경우, 상속받는 클래스 작성자가 반드시 작성하도록 하기 위함
+abstract class Bird {
+    private int x, y, z;
+    void fly(int x, int y, int z) {
+        printLocation();
+        System.out.println("이동합니다.");
+        this.x = x;
+        this.y = y;
+        if (flyable(z)) {
+            this.z = z;
+        } else {
+            System.out.println("그 높이로는 날 수 없습니다.");
+        }
+        printLocation();
+    }
 
-class Child extends ModifierTest {
-    void callParentProtectedMember() {
-        System.out.println("Call my parent's protected method");
-        super.messageProtected();
+    abstract boolean flyable(int z);
+
+    public void printLocation() {
+        System.out.println("현재 위치 (" + x + ", " + y + ", " + z + ")");
+    }
+}
+
+class Pigeon extends Bird {
+    @Override
+    boolean flyable(int z) {
+        return z < 10000;
+    }
+}
+
+class Peacock extends Bird {
+    @Override
+    boolean flyable(int z) {
+        return false;
     }
 }
 
 public class Main {
     public static void main(String[] args) {
-        // 접근 제어자 (access modifier): 멤버 변수/함수 혹은 클래스에 사용되며 외부에서의 접근을 제한하는 역할을 함
-        // - private: 같은 클래스 내에서만 접근이 가능함
-        // - default(nothing): 같은 패키지 내에서만 접근이 가능함
-        // - protected: 같은 패키지 내에서, 그리고 다른 패키지의 자손 클래스에서 접근이 가능함
-        // - public: 접근 제한이 전혀 없음
-
-        // 접근 제어자를 사용하는 이유
-        // - 객체지향 프로그래밍이란 객체들 간의 상호작용을 코드로 표현하는 것
-        // - 이때 객체들간의 관계에 따라 접근할 수 있는 것과 아닌 것, 권한을 구분할 필요가 생김
-        // - 클래스 내부에서 선언된 데이터의 부적절한 사용으로부터 보호하기 위함. 이를 캡슐화라고 함
-        // - 접근 제어자는 캡슐화가 가능할 수 있도록 돕는 도구임
-
-        ModifierTest modifierTest = new ModifierTest();
-
-        modifierTest.messageOutside();
-//        modifierTest.messageInside(); // compile error
-//        modifierTest.messageProtected(); // compile error
-
-        Child child = new Child();
-        child.callParentProtectedMember();
-
+        Bird pigeon = new Pigeon();
+        Bird peacock = new Peacock();
+        System.out.println("-- 비둘기 --");
+        pigeon.fly(1,1,3);
+        System.out.println("-- 공작새 --");
+        peacock.fly(1,1,3);
+        System.out.println("-- 비둘기 --");
+        pigeon.fly(3,3,30000);
     }
 }
