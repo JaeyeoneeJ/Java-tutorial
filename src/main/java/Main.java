@@ -1,31 +1,31 @@
-class Animal {
-    String name;
+import java.lang.reflect.Parameter;
 
-    public void cry() {
-        System.out.println(name + " is crying.");
+class Parent {
+    int num;
+    Parent(){
+        num = 10;
+    }
+    Parent(int n) {
+        num = n;
     }
 }
 
-class Dog extends Animal { // 상속 받을 때, 오직 하나의 클래스만을 상속받을 수 있음
-
-    Dog(String name) {
-        this.name = name;
+class Child extends Parent {
+    int num2;
+    Child() {
+//        super(40); // 주석 처리된 채 실행하면 해당 라인에 자동으로 super() 구문을 삽입해 변수 num은 10으로 초기화 됨
+        num2 = 20;
     }
-
-    public void swim() {
-        System.out.println(name + " is swimming!");
+    void display() {
+        System.out.println(num);
+        System.out.println(num2);
     }
 }
 public class Main {
 
     public static void main(String[] args) {
-        // 클래스 상속
-        Dog dog = new Dog("코코");
-        dog.cry();
-        dog.swim();
-
-        Animal dog2 = dog;
-        dog2.cry();
-//        dog2.swim(); // compile error, 자식 타입에 있는 swim()을 호출할 수 없음
+        // super 키워드 연습
+        Child child = new Child();
+        child.display();
     }
 }
