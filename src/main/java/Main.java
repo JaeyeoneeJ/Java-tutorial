@@ -1,5 +1,3 @@
-import java.lang.reflect.Parameter;
-
 class Parent {
     int num;
     Parent(){
