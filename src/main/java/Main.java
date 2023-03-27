@@ -1,16 +1,14 @@
-// 날짜와 시간의 차이 계산
+// 날짜와 시간 Quiz
+// 오늘의 날짜와 시간을 [연도/월/일 시간:일자]의 형식으로 값을 출력
 
-import java.time.LocalDate;
-import java.time.Period;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Main {
 
     public static void main(String[] args) {
-        LocalDate today = LocalDate.now();
-        LocalDate birthday = LocalDate.of(1992, 6, 14);
-        Period period = Period.between(today, birthday);
-        System.out.println(period.getYears());
-        System.out.println(period.getMonths());
-        System.out.println(period.getDays());
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy/MM/dd hh:mm");
+        String now = dateTimeFormatter.format(LocalDateTime.now());
+        System.out.println("현재 시간: " + now);
     }
 }
