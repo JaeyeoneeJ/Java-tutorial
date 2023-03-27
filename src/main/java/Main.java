@@ -8,26 +8,27 @@
 
 // 컬렉션 인터페이스는 컬렉션 클래스에 저장된 데이터를 읽고, 추가하고 삭제하는 등 데이터를 다루는데 기본적인 메소드들을 정의하고 있음
 
-import java.util.Stack;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class Main {
 
     public static void main(String[] args) {
         // Stack 예제
-        System.out.println("--  Stack 예제 --");
-        Stack<Integer> stack = new Stack<>();
-        stack.push(1);
-        stack.push(3);
-        stack.push(5);
-        stack.push(7);
-        System.out.println(stack); // stack 출력
+        System.out.println("--  Queue 예제 --");
+        Queue<Integer> queue = new LinkedList<>();
+        queue.add(1);
+        queue.add(3);
+        queue.add(5); // Queue에 값 삽입
+        System.out.println(queue);
+        System.out.println(queue.poll()); // Queue에서 객체를 꺼내어 반환
+        System.out.println(queue);
 
-        System.out.println(stack.peek()); // Stack의 가장 상단 값을 출력(삭제 하지 않음)
-        stack.pop(); // Stack의 가장 상단 값을 제거
-        System.out.println(stack);
-        System.out.println(stack.size());
-        System.out.println(stack.contains(1)); // Stack에 1이라는 값이 있으면 true, 아니면 false
-        System.out.println(stack.empty()); // Stack이 비어있으면 true, 아니면 false
-        System.out.println(stack);
+        queue.add(7);
+        queue.add(11);
+        queue.add(9);
+        System.out.println(queue);
+        System.out.println(queue.peek()); // Queue에서 삭제 없이 요소를 반환
+        System.out.println(queue);
     }
 }
