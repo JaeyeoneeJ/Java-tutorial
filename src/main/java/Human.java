@@ -11,4 +11,15 @@ public class Human {
         this.x = x;
         this.y = y;
     }
+
+    public Human(String name, int age, int speed) {
+        this(name, age, speed, 0, 0);
+    }
+
+    public String getLocation() {
+        return "(" + x + ", " + y + ")";
+    }
+    protected void printWhoAmI() {
+        System.out.println("My name is " + name + ". " + age + " aged.");
+    }
 }
