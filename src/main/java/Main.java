@@ -1,13 +1,19 @@
+// 스트림 quiz
+// - "이"씨 성을 가진 사람들의 수를 세보려고 함. 스트림을 활용해서 코드를 만들어보자
+// - 이름: ["김정우", "김호정", "이하늘", "이정희", "박정우", "박지현", "정우석", "이지수"]
+
 import java.util.Arrays;
 import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
-        // 스트림 예제4: reducer를 이용한 계산
-        System.out.println("-- 스트림 예제4 --");
-        List<Integer> numArr = Arrays.asList(1,2,3,4,5,6,7,8,9,10);
-        Integer result = numArr.stream().reduce(0, Integer::sum); // reduce와 sum을 활용하여 1부터 10까지 더하게 됨
-        System.out.println(result);
+        System.out.println("-- 스트림 퀴즈 --");
+        List<String> names = Arrays.asList("김정우", "김호정", "이하늘", "이정희", "박정우", "박지현", "정우석", "이지수");
+        System.out.println(names);
+        long count = names.stream()
+                .filter(str -> str.startsWith("이"))
+                .count();
+        System.out.println("count: " + count);
     }
 }
