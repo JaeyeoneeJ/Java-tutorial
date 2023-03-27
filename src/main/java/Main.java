@@ -1,17 +1,14 @@
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 public class Main {
     public static void main(String[] args) {
-        int number = 10;
-        int result;
-
-        for (int i = 10; i >= 0; i--) {
-            try {
-                result = number / i;
-                System.out.println(i + ": " + result);
-            } catch (Exception e) {
-                System.out.println("Exception 발생: " + e.getMessage());
-            } finally {
-                System.out.println("항상 실행되는 finally 구문");
-            }
+        try (FileOutputStream out = new FileOutputStream("text.txt")) {
+            // text.txt file에 Hello Wolrd를 출력
+            out.write("Hello World".getBytes());
+            out.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
