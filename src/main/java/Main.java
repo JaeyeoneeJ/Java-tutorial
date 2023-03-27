@@ -8,33 +8,26 @@
 
 // 컬렉션 인터페이스는 컬렉션 클래스에 저장된 데이터를 읽고, 추가하고 삭제하는 등 데이터를 다루는데 기본적인 메소드들을 정의하고 있음
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Stack;
 
 public class Main {
 
     public static void main(String[] args) {
-        // HashMap 예제
-        // Hash Map은 키(key)와 값(value)을 하나의 데이터로 저장하는 특징을 가짐
-        // 이를 통하여 해싱(hashing)을 가능하게 하여 데이터를 검색하는데 뛰어난 성능을 보임
-        // 선언 부분의 <> 표시는 제네릭스라는 것으로 key, value에 해당하는 타입을 <> 안에 선언하는 것이라고 이해하면 됨
+        // Stack 예제
+        System.out.println("--  Stack 예제 --");
+        Stack<Integer> stack = new Stack<>();
+        stack.push(1);
+        stack.push(3);
+        stack.push(5);
+        stack.push(7);
+        System.out.println(stack); // stack 출력
 
-        System.out.println("--  HashMap 예제 --");
-        Map<Integer, String> map = new HashMap<>();
-        map.put(1, "apple");
-        map.put(2, "berry");
-        map.put(3, "cherry");
-
-        System.out.println(map);
-
-        System.out.println("1st in map: " + map.get(1));
-
-        map.remove(2);
-        System.out.println(map);
-        System.out.println(map.containsKey(2));
-        System.out.println(map.containsValue("cherry"));
-
-        map.clear();
-        System.out.println(map);
+        System.out.println(stack.peek()); // Stack의 가장 상단 값을 출력(삭제 하지 않음)
+        stack.pop(); // Stack의 가장 상단 값을 제거
+        System.out.println(stack);
+        System.out.println(stack.size());
+        System.out.println(stack.contains(1)); // Stack에 1이라는 값이 있으면 true, 아니면 false
+        System.out.println(stack.empty()); // Stack이 비어있으면 true, 아니면 false
+        System.out.println(stack);
     }
 }
