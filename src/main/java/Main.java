@@ -9,34 +9,43 @@
 // 컬렉션 인터페이스는 컬렉션 클래스에 저장된 데이터를 읽고, 추가하고 삭제하는 등 데이터를 다루는데 기본적인 메소드들을 정의하고 있음
 
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class Main {
 
     public static void main(String[] args) {
-        List list = new ArrayList(10);
-        list.add(1);
-        list.add(5);
-        list.add(4);
-        list.add(11);
-        list.add(10); // ArrayList에 값 한개씩 입력
-        System.out.println(list); // [1,5,4,11,10]
+        Set<Integer> integerSet = new HashSet<>(); // Collectioin의 자료형에서 primitive 타입은 올 수 없음. primitive 타입에 해당하는 class가 존재하니 그것을 사용
+        integerSet.add(1);
+        integerSet.add(3);
+        integerSet.add(2);
+        integerSet.add(9); // 하나씩 값을 삽입
+        System.out.println(integerSet); // 출력해보면 순서가 지켜지지 않는 것을 확인
 
-        Collections.sort(list); // list 정렬
-        System.out.println(list); // [1,4,5,10,11]
+        Set<String> stringSet = new HashSet<>();
+        stringSet.add("LA");
+        stringSet.add("New York");
+        stringSet.add("LasVegas");
+        stringSet.add("San Francisco");
+        stringSet.add("Seoul");
+        System.out.println(stringSet);
 
-        System.out.println(list.size()); // arrayList의 크기 출력
+        stringSet.remove("Seoul"); // Seoul을 HashSet에서 제거
+        System.out.println(stringSet);
 
-        list.remove(4); // 인덱스를 활용하여 해당 값 제거
-        System.out.println(list);
+        ArrayList<String> target = new ArrayList<String>();
+        target.add("New York");
+        target.add("LasVegas"); // 제거할 항목을 ArrayList에 삽임
+        stringSet.removeAll(target);
+        System.out.println(stringSet);
 
-        for (int i = 0; i < list.size(); i++) {
-            System.out.println(list.get(i)); // get을 이용하여 값 1개씩 출력
-        }
-        for (Object current : list) {
-            System.out.println(current);
-        }
+        System.out.println("LA가 포함되어 있나요? " + stringSet.contains("LA")); // LA가 HashSet에 포함되어 있으면 true, 아니면 false
+        System.out.println("LasVegas가 포함되어 있나요? " + stringSet.contains("LasVegas"));
+
+        System.out.println("현재 HashSet의 크기는 : " + stringSet.size() + "입니다."); // HashSet의 크기를 반환
+
+        stringSet.clear(); // HashSet의 모든 아이템들을 삭제
+        System.out.println(stringSet);
+
+
     }
 }
